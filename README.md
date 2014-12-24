@@ -1,6 +1,6 @@
 # CapVRM
 
-TODO: Write a gem description
+This is a simple gem to get VRM details from CAP's DVLA lookup web service. You need to have a commercial relationship with them to use it, see http://cap.co.uk to contact them.
 
 ## Installation
 
@@ -18,7 +18,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```require 'rubygems'
+require 'CapVRM'
+
+CapVRM.config username: 'account', password: 'password'
+
+car_details = CapVRM.new vrm: 'MV07 XXX'
+
+car_details.found? # true/false
+
+car_details.make # Vauxhall (maybe)
+car_details.manufacturer # Zafira
+
+### More to follow
+
+```
 
 ## Contributing
 
@@ -27,3 +41,4 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
