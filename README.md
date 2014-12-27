@@ -18,12 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
-```require 'rubygems'
+```
+
+require 'rubygems'
 require 'CapVRM'
 
 CapVRM.config username: 'account', password: 'password'
 
-car_details = CapVRM.new vrm: 'MV07 XXX'
+car_details = CapVRM.fetch vrm: 'MV07 XXX'
 
 car_details.found? # true/false
 
