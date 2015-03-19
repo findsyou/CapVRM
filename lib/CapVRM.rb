@@ -10,11 +10,11 @@ module CapVRM
     def initialize(xml)
       @response_hash = Hash.from_xml(xml)
       if found?
-        @data_hash = data['CAP'].merge(data['DVLA'])
+        @data_hash  = (data['CAP'] || {}).merge(data['DVLA']||{})
       end
     end
     def found?
-      !!data
+      (!!data) && (response_hash["RESPONSE"]["MATCHLEVEL"]["DVLA"] == "1" || response_hash["RESPONSE"]["MATCHLEVEL"]["CAP"] == "1")
     end
     private
     def data
